@@ -19,12 +19,12 @@ namespace Catalog.API.Controllers
 
         public CatalogController(IProductRepository repository, ILogger<CatalogController> logger)
         {
-            _repository = repository;
-            _logger = logger;
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Product>),(int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             var products = await _repository.GetProducts();

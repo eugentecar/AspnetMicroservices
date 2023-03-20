@@ -1,6 +1,5 @@
 {
   "Routes": [
-
     //Catalog API
     {
       "DownstreamPathTemplate": "/api/v1/Catalog",
@@ -13,14 +12,7 @@
       ],
       "UpstreamPathTemplate": "/Catalog",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
-      "FileCacheOptions": { "TtlSeconds": 30 } //,
-      //"RateLimitOptions": {
-      //  "ClientWhitelist": [],
-      //  "EnableRateLimiting": true,
-      //  "Period": "5s",
-      //  "PeriodTimespan": 1,
-      //  "Limit": 1
-      //}
+      "FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
@@ -128,7 +120,6 @@
       "UpstreamPathTemplate": "/Order/{userName}",
       "UpstreamHttpMethod": [ "GET" ]
     }
-
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5010"
